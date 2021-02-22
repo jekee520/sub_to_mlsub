@@ -14,7 +14,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/201
 ## v2ray订阅地址
 subscribe_url = ''
 hostname = ''
-pathname = ''
+servername = ''
 vmesscode = ''
 
 class Resquest(BaseHTTPRequestHandler):
@@ -24,10 +24,10 @@ class Resquest(BaseHTTPRequestHandler):
         self.end_headers()
         subscribe_url = self.path.split("&")[1]
         hostname = self.path.split("&")[2]
-        pathname = self.path.split("&")[3]
+        servername = self.path.split("&")[3]
         print("subscribe_url:",subscribe_url)
         print("hostname:",hostname)
-        print("pathname:", pathname)
+        print("servername:", servername)
 
         socket.setdefaulttimeout(3)
         req = urllib.request.Request(url=subscribe_url, headers=headers)
@@ -55,9 +55,8 @@ class Resquest(BaseHTTPRequestHandler):
 
                 par = json.loads(jj)  # 转换成字典
                 print("转换为字典后内容:", par)
-                par["ps"] = hostname + par["ps"]
+                par["ps"] = servername + par["ps"]
                 par["host"] = hostname
-                par["path"] = pathname
                 dic = json.dumps(par)  # 转换成json
                 print("添加混淆参数后json内容：", dic)
 

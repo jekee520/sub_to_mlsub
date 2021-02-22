@@ -1,0 +1,19 @@
+安装 python3      
+
+找一个目录保存  默认  登录用户名目录 
+先下载一下压缩包(FTP传也一样)：weget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+
+解压：tar -Jxvf Python-3.7.0.tar.xz
+cd Python-3.7.0 
+
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel kernel-devel libffi-devel
+make
+make install
+
+安装完成以后    输入  python3  或者pip  查看是否有反应  
+
+安装脚本需要的依赖  
+pip install -r requirements.txt
+运行脚本   python3 main.py
+后台运行 nohup python3 -u main.py 
+结束    ps -ef|grep main.py    kill -9  15656(对应的id号)

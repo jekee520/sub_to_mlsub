@@ -8,7 +8,7 @@ import requests
 
 
 data = {'result': 'this is a test'}
-host = ('10.0.0.8', 8888)  #修改为你服务器本地ip  linux使用ifconfig 查看第一个
+host = ('10.0.0.8', 8888)  #修改为你服务器本地ip ，端口 linux使用ifconfig 查看第一个
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
 
 ## v2ray订阅地址
